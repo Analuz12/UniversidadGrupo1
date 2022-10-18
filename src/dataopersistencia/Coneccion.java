@@ -24,7 +24,7 @@ public class Coneccion {
     public Connection buscarConexion(){
         if (conexion==null) {
             try {
-                class.forName("org.mariadb.jdbc.");
+                class.forName("com.mysql.jdbc.Driver");
                 conexion=DriverManager.getConnection(url, usuario, password);
                         
                         } catch (SQLException | ClassNotFoundException ex) {
