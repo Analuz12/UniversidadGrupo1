@@ -19,7 +19,7 @@ public class AlumnoData {
         this.con = conexion.buscarConexion();
     }
     public void guardarAlumno (Alumno a){
-        String query="INSERT INTO alumno(nombre,fechaNac,activo")
+        String query="INSERT INTO Alumno(nombre,fechaNac,activo") VALUES(?,?,?)";
         
     }
 }
