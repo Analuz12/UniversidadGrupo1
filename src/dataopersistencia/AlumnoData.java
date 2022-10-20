@@ -5,21 +5,8 @@
  */
 package dataopersistencia;
 
-import java.sql.Connection;
-import universidadgrupo1.modelo.Alumno;
 
-/**
- *
- * @author Ana luz
- */
 public class AlumnoData {
-    private Connection con =null;
     
-    public AlumnoData(Coneccion conexion){
-        this.con = conexion.buscarConexion();
-    }
-    public void guardarAlumno (Alumno a){
-        String query="INSERT INTO Alumno(nombre,fechaNac,activo") VALUES(?,?,?)";
-        
-    }
+    
 }
