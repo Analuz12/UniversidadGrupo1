@@ -22,8 +22,8 @@ public class AlumnoData {
     public AlumnoData(){
         this.con=Conexion.getConexion();
     }
-    public void guardarAlumno(Alumno alumno) throws SQLException{
-        String sql="INSERT INTO alumnos (Apellido,Nombre,FechaNac,Dni,Activo) VALUES(?,?,?,?,?)";
+    public void guardarAlumno(Alumno alumno){
+        String sql="INSERT INTO alumno (Apellido,Nombre,FechaNac,Dni,Activo) VALUES(?,?,?,?,?)";
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1,alumno.getApellido());
@@ -48,7 +48,7 @@ public class AlumnoData {
     public ArrayList<Alumno> obtenerAlumno(){
      ArrayList<Alumno> listaTemp= new ArrayList();
      
-      String sql="SELECT * FROM alumnos WHERE estado = 1";
+      String sql="SELECT * FROM alumno WHERE estado = 1";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -78,7 +78,7 @@ public class AlumnoData {
     }
     
       public Alumno obtenerAlumnoPorId(int idAlumno) {
-        String sql= "SELECT * FROM alumnos WHERE estado = 1 AND idAlumno = ?";
+        String sql= "SELECT * FROM alumno WHERE Activo = 1 AND idAlumno = ?";
         
         Alumno alu = new Alumno();
         try {
@@ -90,22 +90,22 @@ public class AlumnoData {
                 alu.setIdAlumno(idAlumno);
                 alu.setApellido(rs.getString("Apellido"));
                 alu.setNombre(rs.getString("Nombre"));
-                alu.setFechaNac(rs.getDate("fechaNacimiento").toLocalDate());
+                alu.setFechaNac(rs.getDate("fechaNac").toLocalDate());
                 alu.setDni(rs.getInt("dni"));
-                alu.setActivo(rs.getBoolean("estado"));
+                alu.setActivo(rs.getBoolean("Activo"));
                 
             }
             
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-obtenerAlumnoPorId");
+            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-obtenerAlumnoPorId"+ex.getMessage());
         }
         return alu;
          
     }
       public void borrarAlumno (int id){
-        String sql="UPDATE alumnos SET estado=0 WHERE idAlumno=?";
+        String sql="UPDATE alumno SET Activo=0 WHERE idAlumno=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, id);
@@ -123,7 +123,7 @@ public class AlumnoData {
     
     
     public void actualizaAlumno(Alumno alumno){
-        String sql="UPDATE alumnos SET Apellido = ?, Nombre = ?, fechaNac = ?,dni=?, estado=? WHERE idAlumno=?";
+        String sql="UPDATE alumno SET Apellido = ?, Nombre = ?, fechaNac = ?,dni=?, Activo=? WHERE idAlumno=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             
@@ -140,7 +140,7 @@ public class AlumnoData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-actualizarAlumno");
+            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-actualizarAlumno"+ex.getMessage());
         }
     }
 }
