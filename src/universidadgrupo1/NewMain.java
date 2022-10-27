@@ -7,12 +7,14 @@ package universidadgrupo1;
 
 import dataopersistencia.AlumnoData;
 import dataopersistencia.Conexion;
+import dataopersistencia.InscripcionData;
 import dataopersistencia.MateriaData;
 import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
 import universidadgrupo1.modelo.Alumno;
+import universidadgrupo1.modelo.Inscripcion;
 import universidadgrupo1.modelo.Materia;
 
 public class NewMain {
@@ -27,7 +29,7 @@ public class NewMain {
         Connection con=Conexion.getConexion();
 //------------------------------------------PRUEBA ALUMNODATA--------------------------------------//
         //Prueba Alumno.
-        //AlumnoData alu= new AlumnoData();
+       AlumnoData alu= new AlumnoData();
         
         //Utilize el metodo guardar alumno se puede ver reflejado en la base de datos
        // Alumno bruno=new Alumno ("Cerutti","Bruno",LocalDate.of(1997, Month.MARCH,14),3456789,true);
@@ -45,7 +47,7 @@ public class NewMain {
          //System.out.println(listaTemp);
          
          //Metodo para borrar Alumno
-        // Alumno alus=alu.borrarAlumno(3);
+          alu.borrarAlumno(3);
         
         
        
@@ -55,10 +57,11 @@ public class NewMain {
  //------------------PRUEBA CLASE MATERIADATA---------------------------------------//
   
  
-         MateriaData mat= new MateriaData();
+         //MateriaData mat= new MateriaData();
          
          //AGREGAR MATERIA A LA BASE DE DATOS
-         Materia mate = new Materia ("Laboratorio",1,true);
+         //Materia mate = new Materia("Laboratorio",1,true);
+         //mat.guardarMateria(mate);
          
          
          //MOSTRAR MATERIAS
@@ -80,9 +83,14 @@ public class NewMain {
     }
     //---------------------------------Prueba CLASE INSCRIPCION------------------------------------------/
     
+    //Agregar Inscripcion
     
+    InscripcionData ins= new InscripcionData();
     
+    //Agregar Inscripcion a la base de datos.
     
+    Inscripcion in=new Inscripcion (1,1,8);
+   
     
     
     

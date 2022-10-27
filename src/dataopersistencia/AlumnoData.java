@@ -109,7 +109,7 @@ public class AlumnoData {
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idAlumno);
-            ps.executeUpdate();//
+            ps.executeUpdate(sql);//
             
             JOptionPane.showMessageDialog(null, "Se elimino el alumno correctamente");
             
