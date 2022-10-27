@@ -41,7 +41,7 @@ public class InscripcionData {
         }catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "IncripcionData Sentencia SQL erronea-AgregarMateria");
         }
-       
+ 
     } 
     
     
