@@ -26,7 +26,7 @@ public class MateriaData {
     }
  
      public void guardarMateria(Materia materia){
-        String sql="INSERT INTO materia (Nombre,Anio,Activa) VALUES (?,?,?)";
+        String sql="INSERT INTO materia (Nombre,Anio,Activa ) VALUES (?,?,?)";
         try{
             PreparedStatement ps=con.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
@@ -121,7 +121,7 @@ public class MateriaData {
     
     
     
-    public void actualizaAlumno(Materia materia){
+    public void actualizaMateria(Materia materia){
         String sql="UPDATE materia SET  Nombre = ?,Anio=?, Activa=? WHERE idMateria=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);

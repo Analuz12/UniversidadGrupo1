@@ -25,10 +25,11 @@ public class NewMain {
         //Prueba conexion.
         
         Connection con=Conexion.getConexion();
-        
+//------------------------------------------PRUEBA ALUMNODATA--------------------------------------//
         //Prueba Alumno.
         //AlumnoData alu= new AlumnoData();
-         //Utilize el metodo guardar alumno se puede ver reflejado en la base de datos
+        
+        //Utilize el metodo guardar alumno se puede ver reflejado en la base de datos
        // Alumno bruno=new Alumno ("Cerutti","Bruno",LocalDate.of(1997, Month.MARCH,14),3456789,true);
         
          //Metodo para obtener el alumno por ID
@@ -39,26 +40,43 @@ public class NewMain {
          //alum.setApellido("lopez");
          //alu.actualizaAlumno(alum);
          
+         //Metodo para mostrar la lista de alumno
+         //ArrayList<Alumno> listaTemp=alu.obtenerAlumno();
+         //System.out.println(listaTemp);
          
          //Metodo para borrar Alumno
         // Alumno alus=alu.borrarAlumno(3);
         
         
        
-         //Metodo para mostrar la lista de alumno
-         //ArrayList<Alumno> listaTemp=alu.obtenerAlumno();
-         //System.out.println(listaTemp);
+         
             
+         
+ //------------------PRUEBA CLASE MATERIADATA---------------------------------------//
+  
+ 
          MateriaData mat= new MateriaData();
          
-         //Materia mate = new Materia ("Laboratorio",1,true);
+         //AGREGAR MATERIA A LA BASE DE DATOS
+         Materia mate = new Materia ("Laboratorio",1,true);
          
          
+         //MOSTRAR MATERIAS
          //ArrayList<Materia> listaMateria= mat.obtenerMateria();
          //System.out.println(listaMateria);
+    
          
-         Materia mates= mat.obtenerMateriaPorId(3);
-         System.out.println(mat);
+         //MOSTRAR MATERIAS POR ID
+         //Materia mates= mat.obtenerMateriaPorId(3);
+         //System.out.println(mates);
+         
+         
+         //ACTUALIZAR MATERIA
+         //mates.setNombre("Estructura de datos");
+         //mat.actualizaMateria(mates);
+         
+         //BORRAR MATERIA
+         //Materia materia=mat.borrarMateria(3);
     }
     
 }
