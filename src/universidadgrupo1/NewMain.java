@@ -78,5 +78,30 @@ public class NewMain {
          //BORRAR MATERIA
          //Materia materia=mat.borrarMateria(3);
     }
+    //---------------------------------Prueba CLASE INSCRIPCION------------------------------------------/
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

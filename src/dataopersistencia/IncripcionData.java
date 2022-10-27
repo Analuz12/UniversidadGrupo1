@@ -9,6 +9,6 @@ package dataopersistencia;
  *
  * @author Ana luz
  */
-public class CursadaData {
+public class IncripcionData {
     
 }
