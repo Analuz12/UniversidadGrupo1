@@ -105,11 +105,11 @@ public class AlumnoData {
          
     }
       public void borrarAlumno (int idAlumno){
-        String sql="UPDATE alumno SET Activo=0 WHERE idAlumno=?";
+        String sql="UPDATE alumno SET Activo=false WHERE idAlumno=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idAlumno);
-            ps.executeUpdate(sql);//
+            ps.executeUpdate();//
             
             JOptionPane.showMessageDialog(null, "Se elimino el alumno correctamente");
             
