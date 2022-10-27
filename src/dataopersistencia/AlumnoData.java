@@ -48,7 +48,7 @@ public class AlumnoData {
     public ArrayList<Alumno> obtenerAlumno(){
      ArrayList<Alumno> listaTemp= new ArrayList();
      
-      String sql="SELECT * FROM alumno WHERE estado = 1";
+      String sql="SELECT * FROM alumno WHERE Activo = 1";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);
@@ -64,7 +64,7 @@ public class AlumnoData {
                 a.setNombre(rs.getString("Nombre"));
                 a.setFechaNac(rs.getDate("FechaNac").toLocalDate());
                 a.setDni(rs.getLong("Dni"));
-                a.setActivo(rs.getBoolean("estado"));
+                a.setActivo(rs.getBoolean("Activo"));
                 
                 listaTemp.add(a);
             }
@@ -76,7 +76,7 @@ public class AlumnoData {
         }
     return listaTemp;
     }
-    
+       
       public Alumno obtenerAlumnoPorId(int idAlumno) {
         String sql= "SELECT * FROM alumno WHERE Activo = 1 AND idAlumno = ?";
         
@@ -99,16 +99,16 @@ public class AlumnoData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-obtenerAlumnoPorId"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-obtenerAlumnoPorId");
         }
         return alu;
          
     }
-      public void borrarAlumno (int id){
+      public void borrarAlumno (int idAlumno){
         String sql="UPDATE alumno SET Activo=0 WHERE idAlumno=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1,idAlumno);
             ps.executeUpdate();//
             
             JOptionPane.showMessageDialog(null, "Se elimino el alumno correctamente");
@@ -116,7 +116,7 @@ public class AlumnoData {
             ps.close();
             
     }   catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-borrarAlumno");
+            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-borrarAlumno"+ex.getMessage());
         }
     }
     
