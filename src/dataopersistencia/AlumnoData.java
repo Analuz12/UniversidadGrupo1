@@ -143,5 +143,9 @@ public class AlumnoData {
             JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-actualizarAlumno"+ex.getMessage());
         }
     }
+
+    Alumno obtenerAlumno(int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
     

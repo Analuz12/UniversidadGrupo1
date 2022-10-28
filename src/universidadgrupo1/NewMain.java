@@ -24,12 +24,14 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
+       
         //Prueba conexion.
         
         Connection con=Conexion.getConexion();
+       
 //------------------------------------------PRUEBA ALUMNODATA--------------------------------------//
         //Prueba Alumno.
-       AlumnoData alu= new AlumnoData();
+      AlumnoData alu= new AlumnoData();
         
         //Utilize el metodo guardar alumno se puede ver reflejado en la base de datos
        // Alumno bruno=new Alumno ("Cerutti","Bruno",LocalDate.of(1997, Month.MARCH,14),3456789,true);
@@ -47,17 +49,14 @@ public class NewMain {
          //System.out.println(listaTemp);
          
          //Metodo para borrar Alumno
-          alu.borrarAlumno(3);
+         //alu.borrarAlumno(3);
         
-        
-       
-         
-            
+      
          
  //------------------PRUEBA CLASE MATERIADATA---------------------------------------//
   
  
-         //MateriaData mat= new MateriaData();
+         MateriaData mat= new MateriaData();
          
          //AGREGAR MATERIA A LA BASE DE DATOS
          //Materia mate = new Materia("Laboratorio",1,true);
@@ -80,36 +79,19 @@ public class NewMain {
          
          //BORRAR MATERIA
          //Materia materia=mat.borrarMateria(3);
-    }
+    
     //---------------------------------Prueba CLASE INSCRIPCION------------------------------------------/
     
-    //Agregar Inscripcion
+         //Agregar Inscripcion
     
-    InscripcionData ins= new InscripcionData();
+         InscripcionData ins= new InscripcionData(con,mat,alu);
     
-    //Agregar Inscripcion a la base de datos.
-    
-    Inscripcion in=new Inscripcion (1,1,8);
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+         //Agregar Inscripcion a la base de datos.
+     
+         Inscripcion i = new Inscripcion ();
+      
+         System.out.println(ins.obtenerInscripcion(5, 2));
+      
 }
+}
+
