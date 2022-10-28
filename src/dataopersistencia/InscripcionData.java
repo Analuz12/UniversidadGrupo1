@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import universidadgrupo1.modelo.Alumno;
 import universidadgrupo1.modelo.Inscripcion;
@@ -83,11 +84,60 @@ public class InscripcionData {
     }
       
       
+      public void borrarInscripcion( int idAlumno, int idMateria){
+          String sql="DELETE FROM inscripcion WHERE IdInscripcion=? AND IdMateria=?;";
+          
+          
+          try {
+               PreparedStatement ps=con.prepareStatement(sql);
+            
+            ps.setInt(1,idAlumno);//? reemplazo
+            ps.setInt(2,idMateria);
+            
+            int encuentra=ps.executeUpdate();//select
+             ResultSet rs=ps.executeQuery();
+            
+              while (encuentra>0) { 
+                  Inscripcion i=new Inscripcion();           
+                  i.setAlumno(ad.obtenerAlumno(idAlumno));
+                  i.setMateria(ma.obtenerMateriaPorId(idMateria));
+                  
+                  JOptionPane.showMessageDialog(null, "inscripcion borrada");
+              }
+              ps.close();              
+          } catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+          }    
+      
+      }
+      
+      public void actualizarNota (){
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+      }
       
       
+      public void /*ArrayList<>*/ obtenerMateriaInscriptas(){
+      
+      }
       
       
+       public void /*ArrayList<>*/ obtenerMateriaNoInscriptas(){
       
+      }
+      
+       
+      public void /*ArrayList<>*/ obtenerAlumnosInscriptos(){
+      
+      } 
     } 
     
   
