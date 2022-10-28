@@ -104,7 +104,7 @@ public class MateriaData {
          
     }
      public void borrarMateria (int idMateria){
-        String sql="UPDATE materia SET Activo=0 WHERE idMateria=?";
+        String sql="UPDATE materia SET Activa=false WHERE idMateria=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idMateria);

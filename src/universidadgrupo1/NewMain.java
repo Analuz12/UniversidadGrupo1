@@ -30,7 +30,7 @@ public class NewMain {
         Connection con=Conexion.getConexion();
        
 //------------------------------------------PRUEBA ALUMNODATA--------------------------------------//
-        //Prueba Alumno.
+//        //Prueba Alumno.
       AlumnoData alu= new AlumnoData();
         
         //Utilize el metodo guardar alumno se puede ver reflejado en la base de datos
@@ -49,14 +49,14 @@ public class NewMain {
          //System.out.println(listaTemp);
          
          //Metodo para borrar Alumno
-         //alu.borrarAlumno(3);
-        
+//         alu.borrarAlumno(3);
+//        
       
          
  //------------------PRUEBA CLASE MATERIADATA---------------------------------------//
   
- 
-         MateriaData mat= new MateriaData();
+// 
+          MateriaData mat= new MateriaData();
          
          //AGREGAR MATERIA A LA BASE DE DATOS
          //Materia mate = new Materia("Laboratorio",1,true);
@@ -78,20 +78,24 @@ public class NewMain {
          //mat.actualizaMateria(mates);
          
          //BORRAR MATERIA
-         //Materia materia=mat.borrarMateria(3);
+         //mat.borrarMateria(3);
     
     //---------------------------------Prueba CLASE INSCRIPCION------------------------------------------/
     
          //Agregar Inscripcion
     
-         InscripcionData ins= new InscripcionData(con,mat,alu);
-    
-         //Agregar Inscripcion a la base de datos.
-     
-         Inscripcion i = new Inscripcion ();
-      
-         System.out.println(ins.obtenerInscripcion(5, 2));
-      
+             InscripcionData ins= new InscripcionData(con,mat,alu);
+//    
+//         //Agregar Inscripcion a la base de datos.
+//     
+          Inscripcion i = new Inscripcion ();
+//      
+//         //Guardar Inscripcion 
+            ins.guardarInscripcion("idAlumno","idMateria",0);
+
+           //Obtener Inscripcion
+           //System.out.println(ins.obtenerInscripcion(5, 2));
+//      
 }
 }
 
