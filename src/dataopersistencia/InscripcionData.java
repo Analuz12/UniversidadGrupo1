@@ -112,44 +112,36 @@ public class InscripcionData {
           }    
       
       }
-      
-      public ArrayList <Inscripcion> obtenerInscripciones(){
-          ArrayList <Inscripcion> listIn =new ArrayList();
-          
-          String sql="SELECT * from inscripcion";
+//      
+//      public ArrayList <Inscripcion> obtenerInscripciones(){
+//          ArrayList <Inscripcion> listIn =new ArrayList();
+//          
+//          String sql="SELECT * from inscripcion ; ";
+//                  
+//           try{
+//               PreparedStatement ps= con.prepareStatement(sql);
+//               
+//               ResultSet rs=ps.executeQuery();
+//               
+//               while(rs.next()){
+//                   Inscripcion i = new Inscripcion ();
+//                   Alumno a = new Alumno ();
+//                   Materia m = new Materia();
+//                   
+//                   i.setIdInscripcion(rs);
+//                   a.setIdAlumno(rs.getInt("idAlumno"));
+//                   m.setIdMateria(rs.getInt("idMateria"));
+//                   
+//                   
+//                   listIn.add(i);
+//               }
+//              
+//           } catch (Exception ex) {
+//              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+//          }    
+//           return listIn;
+//      }   
                   
-           try{
-               PreparedStatement ps= con.prepareStatement(sql);
-               
-               ResultSet rs=ps.executeQuery();
-               
-               while(rs.next()){
-                   Inscripcion i = new Inscripcion ();
-                   Alumno a = new Alumno ();
-                   Materia m = new Materia();
-                   
-                   i.setIdInscripcion(rs.getInt("idInscripcion"));
-                   a.setIdAlumno(rs.getInt("idAlumno"));
-                   m.setIdMateria(rs.getInt("idMateria"));
-                   
-                   
-                   listIn.add(i);
-               }
-              
-           } catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
-          }    
-           return listIn;
-      }   
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-                  
-      }
       public void actualizarNota (){
           
     
@@ -157,8 +149,26 @@ public class InscripcionData {
       }
       
       
-      public void /*ArrayList<>*/ obtenerMateriaInscriptas(){
-      
+      public  ArrayList<Materia> obtenerMateriaInscriptas(int idAlumno){
+      ArrayList <Materia> listMat =new ArrayList();
+      String sql= "SELECT * FROM incripcion WHERE idAlumno= ?";
+      try{
+               PreparedStatement ps= con.prepareStatement(sql);
+               
+               ps.setInt(1,"IdAlumno());
+               ResultSet rs = ps.executeQuery();
+               
+               while(rs.next()){
+                Inscripcion i= new Inscripcion();
+                i=ma.obtenerMateria(rs.getInt("idMateria"));
+               }
+                listMat.add(i);
+           } catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+          }    
+          
+          
+          return listMat;
       }
       
       
