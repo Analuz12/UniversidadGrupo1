@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import universidadgrupo1.modelo.Alumno;
 import universidadgrupo1.modelo.Inscripcion;
@@ -22,7 +23,7 @@ public class InscripcionData {
        private MateriaData ma;
        
 
-    public InscripcionData(Connection conexion,MateriaData ma,AlumnoData ad) {
+    public InscripcionData() {
         this.con = Conexion.getConexion();
         this.ad= new AlumnoData();
         this.ma= new MateriaData();
@@ -49,30 +50,34 @@ public class InscripcionData {
             ps.close();
             
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "IncripcionData Sentencia SQL erronea-AgregarMateria");
+              //agregar restriccion de errores
+        JOptionPane.showMessageDialog(null, "IncripcionData Sentencia SQL erronea-AgregarInscripcion"+ex.getMessage());
+          
         }
  }
  
  
-      public  Inscripcion obtenerInscripcion(int Materia,int Alumno){
-        String sql="SELECT* FROM inscripcion WHERE IdMateria=? AND IdAlumno=? ";
+      public  Inscripcion obtenerInscripcion(int idMateria,int idAlumno){
+          
+        String sql="SELECT * FROM inscripcion WHERE IdMateria = ? AND  IdAlumno = ? ";
+        
         Inscripcion i = null;
         
         try {
            
             PreparedStatement ps=con.prepareStatement(sql);
             
-            ps.setInt(1,Materia);
-            ps.setInt(2, Alumno);
+            ps.setInt(1,idMateria);
+            ps.setInt(2, idAlumno);
             
             ResultSet rs=ps.executeQuery();//select
              
             while(rs.next()){
-                i=new Inscripcion();
+               i=new Inscripcion();
                i.setIdInscripcion(rs.getInt("idInscripcion"));
-               Alumno a = ad.obtenerAlumnoPorId(Alumno);
+               Alumno a = ad.obtenerAlumnoPorId(idAlumno);
                i.setAlumno(a);
-               Materia m = ma.obtenerMateriaPorId(Materia);
+               Materia m = ma.obtenerMateriaPorId(idMateria);
                i.setMateria(m);
                i.setNota(rs.getDouble("Nota"));
             }
@@ -85,24 +90,21 @@ public class InscripcionData {
       
       
       public void borrarInscripcion( int idAlumno, int idMateria){
-          String sql="DELETE FROM inscripcion WHERE IdInscripcion=? AND IdMateria=?;";
+          String sql="DELETE FROM inscripcion WHERE IdAlumno = ? AND IdMateria = ? ;";
           
           
           try {
                PreparedStatement ps=con.prepareStatement(sql);
             
-            ps.setInt(1,idAlumno);//? reemplazo
+            ps.setInt(1,idAlumno);
             ps.setInt(2,idMateria);
             
-            int encuentra=ps.executeUpdate();//select
-             ResultSet rs=ps.executeQuery();
+            int encuentra=ps.executeUpdate();
             
-              while (encuentra>0) { 
-                  Inscripcion i=new Inscripcion();           
-                  i.setAlumno(ad.obtenerAlumno(idAlumno));
-                  i.setMateria(ma.obtenerMateriaPorId(idMateria));
-                  
+              if (encuentra>0) {
                   JOptionPane.showMessageDialog(null, "inscripcion borrada");
+              }else {
+                  JOptionPane.showMessageDialog(null, "inscripcion no encontrada");
               }
               ps.close();              
           } catch (Exception ex) {
@@ -111,16 +113,46 @@ public class InscripcionData {
       
       }
       
+      public ArrayList <Inscripcion> obtenerInscripciones(){
+          ArrayList <Inscripcion> listIn =new ArrayList();
+          
+          String sql="SELECT * from inscripcion";
+                  
+           try{
+               PreparedStatement ps= con.prepareStatement(sql);
+               
+               ResultSet rs=ps.executeQuery();
+               
+               while(rs.next()){
+                   Inscripcion i = new Inscripcion ();
+                   Alumno a = new Alumno ();
+                   Materia m = new Materia();
+                   
+                   i.setIdInscripcion(rs.getInt("idInscripcion"));
+                   a.setIdAlumno(rs.getInt("idAlumno"));
+                   m.setIdMateria(rs.getInt("idMateria"));
+                   
+                   
+                   listIn.add(i);
+               }
+              
+           } catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+          }    
+           return listIn;
+      }   
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+      }
       public void actualizarNota (){
           
-          
-          
-          
-          
-          
-          
-          
-          
+    
           
       }
       
@@ -136,6 +168,10 @@ public class InscripcionData {
       
        
       public void /*ArrayList<>*/ obtenerAlumnosInscriptos(){
+      
+          
+          
+          
       
       } 
     } 

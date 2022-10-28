@@ -37,7 +37,7 @@ public class NewMain {
        // Alumno bruno=new Alumno ("Cerutti","Bruno",LocalDate.of(1997, Month.MARCH,14),3456789,true);
         
          //Metodo para obtener el alumno por ID
-         //Alumno alum=alu.obtenerAlumnoPorId(3);
+         Alumno alum=alu.obtenerAlumnoPorId(3);
          //System.out.println(alum);
          
          //Metodo para actualizar alumno
@@ -69,7 +69,7 @@ public class NewMain {
     
          
          //MOSTRAR MATERIAS POR ID
-         //Materia mates= mat.obtenerMateriaPorId(3);
+         Materia mates= mat.obtenerMateriaPorId(3);
          //System.out.println(mates);
          
          
@@ -84,17 +84,26 @@ public class NewMain {
     
          //Agregar Inscripcion
     
-             InscripcionData ins= new InscripcionData(con,mat,alu);
+             InscripcionData ins= new InscripcionData();
 //    
 //         //Agregar Inscripcion a la base de datos.
 //     
-          Inscripcion i = new Inscripcion ();
+            Inscripcion i = new Inscripcion (mates,alum, 9);
 //      
 //         //Guardar Inscripcion 
-            ins.guardarInscripcion("idAlumno","idMateria",0);
+            //ins.guardarInscripcion(i);
 
            //Obtener Inscripcion
-           //System.out.println(ins.obtenerInscripcion(5, 2));
+           //System.out.println(ins.obtenerInscripcion(3, 3));
+           
+           //borrar inscripcion
+           //ins.borrarInscripcion(3, 3);
+           
+           
+           //seleccionar todo de la tabla inscripcion
+           
+        
+           System.out.println(ins.obtenerInscripciones());
 //      
 }
 }
