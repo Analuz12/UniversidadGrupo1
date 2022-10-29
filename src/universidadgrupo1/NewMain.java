@@ -99,16 +99,23 @@ public class NewMain {
            //borrar inscripcion
            //ins.borrarInscripcion(3, 3);
            
-           
-           //seleccionar todo de la tabla inscripcion
-           
-        
+          //ACTUALIZAR NOTA
+          // ins.actualizarNota(2, 1, 10);
+          
+           //seleccionar todo de la tabla inscripcion        
           // System.out.println(ins.obtenerInscripciones());
           
-          //ACTUALIZAR NOTA
+          //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
           
-          ins.actualizarNota(2, 1, 10);
-//      
+          
+          
+          //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
+          
+          
+          
+          //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
+
+
 }
 }
 
