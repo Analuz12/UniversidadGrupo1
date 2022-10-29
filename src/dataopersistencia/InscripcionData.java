@@ -221,7 +221,7 @@ public class InscripcionData {
                } 
                   listMateriaNo.add(ma);
               } catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+              JOptionPane.showMessageDialog(null, "ERROR EN MATERIAS NO INSCRIPTAS Sentencia SQL erronea-OBTENER MATERIA NO INSCRIPTA");
           }    
           
           
