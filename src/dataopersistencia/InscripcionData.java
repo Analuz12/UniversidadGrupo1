@@ -169,9 +169,9 @@ public class InscripcionData {
       
       public  ArrayList<Materia> obtenerMateriaInscriptas( Alumno a){
       ArrayList <Materia> listMat =new ArrayList();
-      String sql= "SELECT alumno.IdAlumno,alumno.Apellido,alumno.Nombre,materia.IdMateria,materia.Nombre,materia.Anio FROM alumno,"
-              + " materia, inscripcion WHERE alumno.IdAlumno=inscripcion.IdAlumno AND materia.IdMateria=inscripcion.IdMateria "
-              + "AND alumno.IdAlumno = ?";
+      Materia mat;
+      
+      String sql= "SELECT * FROM inscripcion WHERE idAlumno = ?";
       
       
       try{
@@ -182,23 +182,23 @@ public class InscripcionData {
                ResultSet rs = ps.executeQuery();
                
                while(rs.next()){
-              
+               mat=new Materia ();
+               
+               mat= ma.obtenerMateria(rs.getInt("idMateria"));
+               listMat.add(mat);
                
                
-               
+               ps.close();
                }
-                listMat.add(m);
-               
-           } catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+      }catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTAob");
           }    
           
           
           return listMat;
       }
       
-      
-       public ArrayList obtenerMateriaNoInscriptas(Alumno a){
+       public ArrayList<Materia> obtenerMateriaNoInscriptas(Alumno a){
            ArrayList <Materia> listMateriaNo= new ArrayList();
            
            Materia ma;
