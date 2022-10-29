@@ -88,7 +88,7 @@ public class NewMain {
 //    
 //         //Agregar Inscripcion a la base de datos.
 //     
-            Inscripcion i = new Inscripcion (mates,alum, 9);
+           // Inscripcion i = new Inscripcion (mates,alum, 9);
 
             //Guardar Inscripcion 
             //ins.guardarInscripcion(i);
@@ -113,7 +113,7 @@ public class NewMain {
           
           
           //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
-          
+          ins.obtenerMateriaNoInscriptas(alum);
           
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS

@@ -202,7 +202,8 @@ public class InscripcionData {
            ArrayList <Materia> listMateriaNo= new ArrayList();
            
            Materia ma;
-           String sql ="SELECT * FROM materia WHERE idMateria NOT IN(SELECT idMateria FROM inscripcion WHERE idAlumno = ? AND materia.Activa=true ";
+           String sql ="SELECT * FROM materia WHERE idMateria NOT IN(SELECT idMateria FROM inscripcion WHERE idAlumno = ?"
+                   + " AND materia.Activa=true ";
            
            try{
                
