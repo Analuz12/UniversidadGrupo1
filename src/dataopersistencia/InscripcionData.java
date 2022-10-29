@@ -2,6 +2,7 @@
 package dataopersistencia;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -112,7 +113,7 @@ public class InscripcionData {
           }    
       
       }
-//      
+      
 //      public ArrayList <Inscripcion> obtenerInscripciones(){
 //          ArrayList <Inscripcion> listIn =new ArrayList();
 //          
@@ -120,64 +121,81 @@ public class InscripcionData {
 //                  
 //           try{
 //               PreparedStatement ps= con.prepareStatement(sql);
-//               
 //               ResultSet rs=ps.executeQuery();
 //               
 //               while(rs.next()){
 //                   Inscripcion i = new Inscripcion ();
-//                   Alumno a = new Alumno ();
-//                   Materia m = new Materia();
 //                   
-//                   i.setIdInscripcion(rs);
-//                   a.setIdAlumno(rs.getInt("idAlumno"));
-//                   m.setIdMateria(rs.getInt("idMateria"));
-//                   
-//                   
+//                 i.setIdInscripcion(rs.getInt(2));
+//                 i.setidAlumno(rs.getInt(3));
+//                 
+//                 
+//                
 //                   listIn.add(i);
 //               }
 //              
 //           } catch (Exception ex) {
-//              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+//              JOptionPane.showMessageDialog(null, "obtener inscripcion Sentencia SQL erronea-obtenerInscripcion");
 //          }    
 //           return listIn;
 //      }   
-                  
-      public void actualizarNota (){
-          
+//                  
+      public void actualizarNota (int idMateria, int idAlumno, double Nota){
+       
+       String sql =" UPDATE inscripcion SET Nota = ? WHERE idAlumno = ? and idMateria = ?";
+         
+         try{    
+           PreparedStatement ps=con.prepareStatement(sql);
+            ps.setDouble(1,Nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
+            ps.executeUpdate();
+            
+            if( ps.executeUpdate()>0){
+                JOptionPane.showMessageDialog(null, "Nota actualizada");
+            }else{
+                 JOptionPane.showMessageDialog(null, "ALUMNO NO ENCONTRADO");
+            }
+            
+            ps.close();
+            
+         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "InscripcioData ActualizacionNota Sentencia SQL erronea-actualizarNota"+ex.getMessage());
+        }
     
           
       }
       
       
-      public  ArrayList<Materia> obtenerMateriaInscriptas(int idAlumno){
-      ArrayList <Materia> listMat =new ArrayList();
-      String sql= "SELECT * FROM incripcion WHERE idAlumno= ?";
-      try{
-               PreparedStatement ps= con.prepareStatement(sql);
-               
-               ps.setInt(1,"IdAlumno());
-               ResultSet rs = ps.executeQuery();
-               
-               while(rs.next()){
-                Inscripcion i= new Inscripcion();
-                i=ma.obtenerMateria(rs.getInt("idMateria"));
-               }
-                listMat.add(i);
-           } catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
-          }    
-          
-          
-          return listMat;
-      }
-      
+//      public  ArrayList<Materia> obtenerMateriaInscriptas(int idAlumno){
+//      ArrayList <Materia> listMat =new ArrayList();
+//      String sql= "SELECT * FROM incripcion WHERE idAlumno= ?";
+//      try{
+//               PreparedStatement ps= con.prepareStatement(sql);
+//               
+//               ps.setInt(1,"IdAlumno());
+//               ResultSet rs = ps.executeQuery();
+//               
+//               while(rs.next()){
+//                Inscripcion i= new Inscripcion();
+//                i=ma.obtenerMateria(rs.getInt("idMateria"));
+//               }
+//                listMat.add(i);
+//           } catch (Exception ex) {
+//              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+//          }    
+//          
+//          
+//          return listMat;
+//      }
+//      
       
        public void /*ArrayList<>*/ obtenerMateriaNoInscriptas(){
       
       }
       
        
-      public void /*ArrayList<>*/ obtenerAlumnosInscriptos(){
+      public ArrayList<Alumno>obtenerAlumnosInscriptos(Alumno a){
       
           
           

@@ -103,7 +103,11 @@ public class NewMain {
            //seleccionar todo de la tabla inscripcion
            
         
-           System.out.println(ins.obtenerInscripciones());
+          // System.out.println(ins.obtenerInscripciones());
+          
+          //ACTUALIZAR NOTA
+          
+          ins.actualizarNota(2, 1, 10);
 //      
 }
 }
