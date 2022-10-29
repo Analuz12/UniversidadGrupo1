@@ -89,19 +89,22 @@ public class NewMain {
 //         //Agregar Inscripcion a la base de datos.
 //     
             Inscripcion i = new Inscripcion (mates,alum, 9);
-//      
-//         //Guardar Inscripcion 
+
+            //Guardar Inscripcion 
             //ins.guardarInscripcion(i);
 
-           //Obtener Inscripcion
-           //System.out.println(ins.obtenerInscripcion(3, 3));
+            //Obtener Inscripcion
+            //System.out.println(ins.obtenerInscripcion(3, 3));
            
-           //borrar inscripcion
-           //ins.borrarInscripcion(3, 3);
+            //borrar inscripcion
+            //ins.borrarInscripcion(3, 3);
            
-          //ACTUALIZAR NOTA
-          // ins.actualizarNota(2, 1, 10);
+           //ACTUALIZAR NOTA
+           // ins.actualizarNota(2, 1, 10);
           
+ //-------------------------------FALTA PROBAR ESTOS METODOS---------------------------------------//
+ 
+ 
            //seleccionar todo de la tabla inscripcion        
           // System.out.println(ins.obtenerInscripciones());
           
