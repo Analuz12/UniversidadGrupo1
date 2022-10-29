@@ -230,16 +230,16 @@ public class InscripcionData {
       
       
        
-      public ArrayList<Alumno>obtenerAlumnosInscriptos(Alumno a){
+      public ArrayList<Alumno>obtenerAlumnosInscriptos(Materia m){
       ArrayList<Alumno> listAlum= new ArrayList();
-      
+      Alumno alumn;
       String sql="SELECT * FROM alumno WHERE activo=true and idAlumno IN (SELECT idAlumno FROM inscripcion WHERE idMateria= ?)";
           
       Alumno an;
       try{
                PreparedStatement ps= con.prepareStatement(sql);
                
-               ps.setInt(1,a.getIdAlumno());
+               ps.setInt(1,m.getIdMateria());
                
                ResultSet rs = ps.executeQuery();
                
@@ -249,11 +249,12 @@ public class InscripcionData {
                an.setApellido(rs.getString("Apellido"));
                an.setNombre(rs.getString("Nombre"));
                an.setDni(rs.getLong("dni"));
-               
-               
+               an.setActivo(rs.getBoolean("Activo"));
+               an.setFechaNac(rs.getDate("FechaNac").toLocalDate());
+               listAlum.add(an);
                
                }
-                listMat.add(an);
+               ps.close();
                
            } catch (Exception ex) {
               JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");

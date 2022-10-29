@@ -110,14 +110,14 @@ public class NewMain {
           
           //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
           
-          
+          //System.out.println(ins.obtenerMateriaInscriptas());
           
           //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
-         System.out.println(ins.obtenerMateriaNoInscriptas(alum));
+         //System.out.println(ins.obtenerMateriaNoInscriptas());
           
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
-
+          //System.out.println(ins.obtenerAlumnosInscriptos());
 
 }
 }
