@@ -103,21 +103,20 @@ public class NewMain {
            // ins.actualizarNota(2, 1, 10);
           
  //-------------------------------FALTA PROBAR ESTOS METODOS---------------------------------------//
- 
- 
-           //seleccionar todo de la tabla inscripcion        
-          // System.out.println(ins.obtenerInscripciones());
           
           //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
-          
-          //System.out.println(ins.obtenerMateriaInscriptas());
+          //System.out.println("--Muestras de materias Inscriptas");
+          //System.out.println(ins.obtenerMateriaInscriptas(alum));
           
           //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
-         //System.out.println(ins.obtenerMateriaNoInscriptas());
+          System.out.println("--Muestra de materias no inscriptas");
+         System.out.println(ins.obtenerMateriaNoInscriptas(alum));
           
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
-          //System.out.println(ins.obtenerAlumnosInscriptos());
+           
+          //System.out.println("los alumnos inscriptos son: "+mates);
+          //System.out.println(ins.obtenerAlumnosInscriptos(mates));
 
 }
 }

@@ -67,8 +67,10 @@ private boolean Activa;
 
     @Override
     public String toString() {
-        return "Materia{" + "Nombre=" + Nombre + ", Anio=" + Anio + '}';
+        return "Materia{" + "IdMateria=" + IdMateria + ", Nombre=" + Nombre + ", Anio=" + Anio + ", Activa=" + Activa + '}';
     }
+
+    
 
     @Override
     public int hashCode() {
