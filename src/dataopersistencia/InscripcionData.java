@@ -191,7 +191,7 @@ public class InscripcionData {
                ps.close();
                }
       }catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTAob");
+              JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTA");
           }    
           
           
@@ -257,8 +257,11 @@ public class InscripcionData {
                ps.close();
                
            } catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "borrat inscripcion Sentencia SQL erronea-borrarInscripcion");
+              JOptionPane.showMessageDialog(null, "Obtener alumnos inscriptos Sentencia SQL erronea-OBTENER ALUMNOS INSCRIPTOS");
           } 
-    } 
+      }
+}
+        
+      
     
   
