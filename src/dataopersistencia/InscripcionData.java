@@ -114,32 +114,7 @@ public class InscripcionData {
       
       }
       
-//      public ArrayList <Inscripcion> obtenerInscripciones(){
-//          ArrayList <Inscripcion> listIn =new ArrayList();
-//          
-//          String sql="SELECT * from inscripcion ; ";
-//                  
-//           try{
-//               PreparedStatement ps= con.prepareStatement(sql);
-//               ResultSet rs=ps.executeQuery();
-//               
-//               while(rs.next()){
-//                   Inscripcion i = new Inscripcion ();
-//                   
-//                 i.setIdInscripcion(rs.getInt(2));
-//                 i.setidAlumno(rs.getInt(3));
-//                 
-//                 
-//                
-//                   listIn.add(i);
-//               }
-//              
-//           } catch (Exception ex) {
-//              JOptionPane.showMessageDialog(null, "obtener inscripcion Sentencia SQL erronea-obtenerInscripcion");
-//          }    
-//           return listIn;
-//      }   
-//                  
+               
       public void actualizarNota (int idMateria, int idAlumno, double Nota){
        
        String sql =" UPDATE inscripcion SET Nota = ? WHERE idAlumno = ? and idMateria = ?";
@@ -259,6 +234,7 @@ public class InscripcionData {
            } catch (Exception ex) {
               JOptionPane.showMessageDialog(null, "Obtener alumnos inscriptos Sentencia SQL erronea-OBTENER ALUMNOS INSCRIPTOS");
           } 
+      return listAlum;
       }
 }
         
