@@ -154,9 +154,9 @@ public class InscripcionData {
                ps.setInt(1,a.getIdAlumno());
                
                ResultSet rs = ps.executeQuery();
-               
+             
                while(rs.next()){
-                   
+
                mat=new Materia ();
                
                mat= ma.obtenerMateriaPorId(rs.getInt("idMateria"));
