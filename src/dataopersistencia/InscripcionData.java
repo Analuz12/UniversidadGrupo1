@@ -160,6 +160,7 @@ public class InscripcionData {
                mat=new Materia ();
                
                mat= ma.obtenerMateriaPorId(rs.getInt("idMateria"));
+               
                listMat.add(mat);
               
                }

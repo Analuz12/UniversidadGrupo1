@@ -104,11 +104,11 @@ public class NewMain {
            
             //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
          //System.out.println("--Muestra de materias no inscriptas");
-        // System.out.println(ins.obtenerMateriaNoInscriptas(alum));
+         //System.out.println(ins.obtenerMateriaNoInscriptas(alum));
           
         //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
-          System.out.println("--Muestras de materias Inscriptas");
-          System.out.println(ins.obtenerMateriaInscriptas(alum));
+         // System.out.println("--Muestras de materias Inscriptas");
+         // System.out.println(ins.obtenerMateriaInscriptas(alum));
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
            
@@ -117,7 +117,7 @@ public class NewMain {
 
           
           //OBTENER TODAS LAS INSCRIPCIONES.
-          System.out.println(ins.obtenerInscripciones());
+          //System.out.println(ins.obtenerInscripciones());
 }
 }
 
