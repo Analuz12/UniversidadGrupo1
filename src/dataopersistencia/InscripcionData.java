@@ -147,14 +147,15 @@ public class InscripcionData {
       Materia mat;
       
       String sql= "SELECT * FROM inscripcion WHERE idAlumno = ?";
-      
+     
+
       try{
                PreparedStatement ps= con.prepareStatement(sql);
                
                ps.setInt(1,a.getIdAlumno());
                
                ResultSet rs = ps.executeQuery();
-             
+
                while(rs.next()){
 
                mat=new Materia ();
