@@ -148,7 +148,6 @@ public class InscripcionData {
       
       String sql= "SELECT * FROM inscripcion WHERE idAlumno = ?";
       
-      
       try{
                PreparedStatement ps= con.prepareStatement(sql);
                
@@ -157,14 +156,14 @@ public class InscripcionData {
                ResultSet rs = ps.executeQuery();
                
                while(rs.next()){
+                   
                mat=new Materia ();
                
-               mat= ma.obtenerMateria(rs.getInt("idMateria"));
+               mat= ma.obtenerMateriaPorId(rs.getInt("idMateria"));
                listMat.add(mat);
-               
-               
-               ps.close();
+              
                }
+                ps.close();
       }catch (Exception ex) {
               JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTA");
           }    
@@ -177,8 +176,8 @@ public class InscripcionData {
            ArrayList <Materia> listMateriaNo= new ArrayList();
            
            Materia ma;
-           String sql ="SELECT * FROM materia WHERE idMateria NOT IN(SELECT idMateria FROM inscripcion WHERE idAlumno = ?"
-                   + " AND materia.Activa=true ";
+           String sql =" SELECT * FROM materia WHERE idMateria NOT IN(SELECT idMateria FROM inscripcion WHERE idAlumno = ?"
+                   + " AND materia.Activa=true) ";
            
            try{
                
@@ -189,12 +188,15 @@ public class InscripcionData {
                
                while(rs.next()){
                    ma=new Materia ();
+                   
                    ma.setIdMateria(rs.getInt("idMateria"));
                    ma.setNombre(rs.getString("Nombre"));
                    ma.setAnio(rs.getInt("Anio"));
                    ma.setActiva(rs.getBoolean("Activa"));
-               } 
+                
                   listMateriaNo.add(ma);
+               }
+               ps.close();
               } catch (Exception ex) {
               JOptionPane.showMessageDialog(null, "ERROR EN MATERIAS NO INSCRIPTAS Sentencia SQL erronea-OBTENER MATERIA NO INSCRIPTA");
           }    
@@ -208,7 +210,7 @@ public class InscripcionData {
       public ArrayList<Alumno>obtenerAlumnosInscriptos(Materia m){
       ArrayList<Alumno> listAlum= new ArrayList();
       Alumno alumn;
-      String sql="SELECT * FROM alumno WHERE activo=true and idAlumno IN (SELECT idAlumno FROM inscripcion WHERE idMateria= ?)";
+      String sql="SELECT * FROM alumno WHERE Activo=true and idAlumno IN (SELECT idAlumno FROM inscripcion WHERE idMateria= ?)";
           
       Alumno an;
       try{
@@ -236,6 +238,38 @@ public class InscripcionData {
           } 
       return listAlum;
       }
+      
+      
+      
+      
+            public ArrayList <Inscripcion> obtenerInscripciones(){
+          ArrayList <Inscripcion> listIn =new ArrayList();
+          
+          String sql="SELECT * from inscripcion ; ";
+                  
+           try{
+               
+               PreparedStatement ps= con.prepareStatement(sql);
+               ResultSet rs=ps.executeQuery();
+               
+               while(rs.next()){
+                   
+               Inscripcion i = new Inscripcion ();
+                   
+                 i.setAlumno(ad.obtenerAlumnoPorId(rs.getInt("idAlumno")));
+                 i.setMateria(ma.obtenerMateriaPorId(rs.getInt("idMateria")));
+                 i.setNota(rs.getInt("Nota"));
+
+                   listIn.add(i);
+               }
+               ps.close();
+              
+           } catch (Exception ex) {
+              JOptionPane.showMessageDialog(null, "obtener inscripcion Sentencia SQL erronea-obtenerInscripcion");
+          }    
+           return listIn;
+      }   
+
 }
         
       

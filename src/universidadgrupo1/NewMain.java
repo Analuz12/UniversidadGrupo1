@@ -69,7 +69,7 @@ public class NewMain {
     
          
          //MOSTRAR MATERIAS POR ID
-         Materia mates= mat.obtenerMateriaPorId(3);
+         Materia mates= mat.obtenerMateriaPorId(5);
          //System.out.println(mates);
          
          
@@ -101,23 +101,23 @@ public class NewMain {
            
            //ACTUALIZAR NOTA
            // ins.actualizarNota(2, 1, 10);
+           
+            //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
+         //System.out.println("--Muestra de materias no inscriptas");
+        // System.out.println(ins.obtenerMateriaNoInscriptas(alum));
           
- //-------------------------------FALTA PROBAR ESTOS METODOS---------------------------------------//
-          
-          //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
-          //System.out.println("--Muestras de materias Inscriptas");
-          //System.out.println(ins.obtenerMateriaInscriptas(alum));
-          
-          //OBTENER LA LISTA DE MATERIAS NO INSCRIPTAS
-          System.out.println("--Muestra de materias no inscriptas");
-         System.out.println(ins.obtenerMateriaNoInscriptas(alum));
-          
+        //OBTENER LA LISTA DE MATERIAS INSCRIPTAS
+          System.out.println("--Muestras de materias Inscriptas");
+          System.out.println(ins.obtenerMateriaInscriptas(alum));
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
            
           //System.out.println("los alumnos inscriptos son: "+mates);
           //System.out.println(ins.obtenerAlumnosInscriptos(mates));
 
+          
+          //OBTENER TODAS LAS INSCRIPCIONES.
+          System.out.println(ins.obtenerInscripciones());
 }
 }
 
