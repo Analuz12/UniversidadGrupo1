@@ -112,8 +112,8 @@ public class NewMain {
           
           //OBTENER LA LISTA DE ALUMNOS INSCRIPTOS
            
-          //System.out.println("los alumnos inscriptos son: "+mates);
-          //System.out.println(ins.obtenerAlumnosInscriptos(mates));
+          System.out.println("los alumnos inscriptos son: "+mates);
+          System.out.println(ins.obtenerAlumnosInscriptos(mates));
 
           
           //OBTENER TODAS LAS INSCRIPCIONES.
