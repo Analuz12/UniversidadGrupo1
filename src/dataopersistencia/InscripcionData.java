@@ -142,37 +142,33 @@ public class InscripcionData {
       }
       
       
-      public  ArrayList<Materia> obtenerMateriaInscriptas( Alumno a){
-      ArrayList <Materia> listMat =new ArrayList();
-      Materia mat;
-      
-      String sql= "SELECT * FROM inscripcion WHERE idAlumno = ?";
-     
+     public List<Materia> obtenerMateriaInscriptas(int IdAlumno) {
+        List<Materia> listMat = new ArrayList<Materia>();
+        Materia mat;
+        String sql = "SELECT * FROM inscripcion JOIN materia ON inscripcion.IdMateria=materia.IdMateria "
+                + "AND inscripcion.IdAlumno = ? ;";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
 
-      try{
-               PreparedStatement ps= con.prepareStatement(sql);
-               
-               ps.setInt(1,a.getIdAlumno());
-               
-               ResultSet rs = ps.executeQuery();
+            ps.setInt(1, IdAlumno);
 
-               while(rs.next()){
+            ResultSet rs = ps.executeQuery();
 
-               mat=new Materia ();
-               
-               mat= ma.obtenerMateriaPorId(rs.getInt("idMateria"));
-               
-               listMat.add(mat);
-              
-               }
-                ps.close();
-      }catch (Exception ex) {
-              JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTA");
-          }    
-          
-          
-          return listMat;
-      }
+            while (rs.next()) { 
+                mat = new Materia();
+                mat.setIdMateria(rs.getInt("IdMateria"));
+                mat.setNombre(rs.getString("Nombre"));
+                mat.setAnio(rs.getInt("Anio"));
+
+                // mat = ma.obtenerMateriaPorId(rs.getInt("idMateria"));
+                listMat.add(mat);
+            }
+            ps.close();
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "Obtener MATERIAS INSCRIPTAS inscripcion Sentencia SQL erronea-OBTENERMATERIAINSCRIPTA");
+        }
+        return listMat;
+    }
       
        public ArrayList<Materia> obtenerMateriaNoInscriptas(Alumno a){
            ArrayList <Materia> listMateriaNo= new ArrayList();
