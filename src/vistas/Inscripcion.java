@@ -9,12 +9,12 @@ package vistas;
  *
  * @author Ana luz
  */
-public class Alumno extends javax.swing.JInternalFrame {
+public class Inscripcion extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Alumno
+     * Creates new form Inscripcion
      */
-    public Alumno() {
+    public Inscripcion() {
         initComponents();
     }
 
