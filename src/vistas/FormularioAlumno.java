@@ -247,8 +247,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         boolean Activo = Jtilde.isEnabled();
         SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy");
         String fecha=formatofecha.format(JfechaNacimiento.getDate());
-        LocalDate fechaNacimiento = LocalDate.parse(fecha,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-        Alumno  alumno = new Alumno(Dni,Apellido,Nombre,FechaNac,Activo);
+        LocalDate FechaNac = LocalDate.parse(fecha,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        Alumno  alumno = new Alumno( Apellido, Nombre,FechaNac,Dni,Activo);
         alumnoData.guardarAlumno(alumno);
         Jlegajos.setText(alumno.getIdAlumno()+"");
         
@@ -305,10 +305,10 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
             String Apellido= Japellidos.getText();
             String Nombre= Jnombres.getText();
             SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy");
-            LocalDate fechaNacimiento = LocalDate.parse(formatofecha.format(JfechaNacimiento.getDate()),DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+            LocalDate FechaNac = LocalDate.parse(formatofecha.format(JfechaNacimiento.getDate()),DateTimeFormatter.ofPattern("dd-MM-yyyy"));
             boolean Activo = Jtilde.isEnabled();
             
-            Alumno alumno= new Alumno (dni, Apellido,Nombre,FechaNac,Activo);
+            Alumno alumno= new Alumno (Apellido,Nombre,FechaNac,dni ,Activo);
             alumnoData.actualizaAlumno(alumno);
         }
     }//GEN-LAST:event_JactualizarActionPerformed
