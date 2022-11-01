@@ -5,17 +5,24 @@
  */
 package vistas;
 
+import dataopersistencia.AlumnoData;
+import dataopersistencia.Conexion;
+import java.sql.Connection;
+
 /**
  *
  * @author Ana luz
  */
 public class Universidadg1 extends javax.swing.JFrame {
-
+    private AlumnoData alumnoData;
+    private Connection con;
     /**
      * Creates new form Universidadg1
      */
     public Universidadg1() {
         initComponents();
+         this.con =Conexion.getConexion();
+        this.alumnoData= new AlumnoData();
     }
 
     /**
@@ -29,8 +36,8 @@ public class Universidadg1 extends javax.swing.JFrame {
 
         Jpanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        escritorio = new javax.swing.JMenuItem();
+        Universidad = new javax.swing.JMenu();
+        FormularioAlumno = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -49,18 +56,18 @@ public class Universidadg1 extends javax.swing.JFrame {
             .addGap(0, 269, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Universidad ");
+        Universidad.setText("Universidad ");
 
-        escritorio.setText("Alumno.");
-        escritorio.addActionListener(new java.awt.event.ActionListener() {
+        FormularioAlumno.setText("Alumno.");
+        FormularioAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                escritorioActionPerformed(evt);
+                FormularioAlumnoActionPerformed(evt);
             }
         });
-        jMenu1.add(escritorio);
+        Universidad.add(FormularioAlumno);
 
         jMenuItem2.setText("Materia.");
-        jMenu1.add(jMenuItem2);
+        Universidad.add(jMenuItem2);
 
         jMenuItem3.setText("Inscripción.");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -68,9 +75,9 @@ public class Universidadg1 extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        Universidad.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(Universidad);
 
         jMenu2.setText("Salir");
 
@@ -95,11 +102,11 @@ public class Universidadg1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void escritorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escritorioActionPerformed
+    private void FormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormularioAlumnoActionPerformed
         // TODO add your handling code here:
         
-        
-    }//GEN-LAST:event_escritorioActionPerformed
+
+    }//GEN-LAST:event_FormularioAlumnoActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -141,9 +148,9 @@ public class Universidadg1 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem FormularioAlumno;
     private javax.swing.JDesktopPane Jpanel;
-    private javax.swing.JMenuItem escritorio;
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu Universidad;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
