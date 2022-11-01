@@ -67,6 +67,11 @@ public class Universidadg1 extends javax.swing.JFrame {
         Universidad.add(FormularioAlumno);
 
         jMenuItem2.setText("Materia.");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FormularioMateriaActionPerformed(evt);
+            }
+        });
         Universidad.add(jMenuItem2);
 
         jMenuItem3.setText("Inscripción.");
@@ -116,6 +121,14 @@ public class Universidadg1 extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void FormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormularioMateriaActionPerformed
+        FormularioMateria fm = new FormularioMateria();
+        fm.setVisible(true);
+        Jpanel.add(fm);
+        Jpanel.repaint();
+        Jpanel.moveToFront(fm);
+    }//GEN-LAST:event_FormularioMateriaActionPerformed
 
     /**
      * @param args the command line arguments

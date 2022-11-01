@@ -98,13 +98,14 @@ public class MateriaData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-obtenerMateriaPorId");
+            JOptionPane.showMessageDialog(null, "No se pudo obtener Materia");
         }
+        JOptionPane.showMessageDialog(null, alu);
         return alu;
          
     }
      public void borrarMateria (int idMateria){
-        String sql="UPDATE materia SET Activa=false WHERE idMateria=?";
+        String sql="UPDATE materia SET Activa=0 WHERE idMateria=?";
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1,idMateria);
@@ -115,7 +116,7 @@ public class MateriaData {
             ps.close();
             
     }   catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "MateriaData Sentencia SQL erronea-borrarMateria"+ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error, no se pudo borrar Materia");
         }
     }
     
