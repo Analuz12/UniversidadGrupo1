@@ -104,6 +104,11 @@ public class Universidadg1 extends javax.swing.JFrame {
 
     private void FormularioAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormularioAlumnoActionPerformed
         // TODO add your handling code here:
+        FormularioAlumno fr = new FormularioAlumno();
+        fr.setVisible(true);
+        Jpanel.add(fr);
+        Jpanel.repaint();
+        Jpanel.moveToFront(fr);
         
 
     }//GEN-LAST:event_FormularioAlumnoActionPerformed
