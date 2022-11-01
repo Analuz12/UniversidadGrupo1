@@ -299,7 +299,8 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
     private void JactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JactualizarActionPerformed
         // TODO add your handling code here:
-        if(Jlegajos.getText() != null){
+        
+           if(Jlegajos.getText() != null){
             
             int dni = Integer.parseInt(Jdnis.getText());
             String Apellido= Japellidos.getText();
