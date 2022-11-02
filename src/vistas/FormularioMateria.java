@@ -186,6 +186,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonLimpiar
 
     private void botonBorrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrar
+        mat = new MateriaData();
         int idMateria = Integer.parseInt(jftCodigoMateria.getText());
         mat.borrarMateria(idMateria);
     }//GEN-LAST:event_botonBorrar
@@ -206,6 +207,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private void botonBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscar
         int idMateria = Integer.parseInt(jftCodigoMateria.getText());
+        mat = new MateriaData();
         mat.obtenerMateriaPorId(idMateria);
     }//GEN-LAST:event_botonBuscar
 
