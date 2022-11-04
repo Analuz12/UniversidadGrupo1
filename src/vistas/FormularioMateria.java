@@ -183,6 +183,9 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     private void botonLimpiar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiar
         jftNombre.setText("");
         jftAnio.setText("");
+        jftCodigoMateria.setText("");
+        //para destildar el checkbox
+        jcbActiva.setSelected(false);
     }//GEN-LAST:event_botonLimpiar
 
     private void botonBorrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrar
@@ -192,7 +195,6 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonBorrar
 
     private void botonActualizar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizar
-        materia = new Materia();
         mat = new MateriaData();
         materia.setAnio(Integer.parseInt(jftAnio.getText()));
         materia.setNombre(jftNombre.getText());
@@ -206,8 +208,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonActualizar
 
     private void botonBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscar
-        int idMateria = Integer.parseInt(jftCodigoMateria.getText());
         mat = new MateriaData();
+        int idMateria = Integer.parseInt(jftCodigoMateria.getText());
         mat.obtenerMateriaPorId(idMateria);
     }//GEN-LAST:event_botonBuscar
 

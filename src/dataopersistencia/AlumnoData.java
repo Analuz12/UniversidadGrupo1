@@ -48,7 +48,7 @@ public class AlumnoData {
     public ArrayList<Alumno> obtenerAlumno(){
      ArrayList<Alumno> listaTemp= new ArrayList();
      
-      String sql="SELECT * FROM alumno WHERE Activo = 1";
+      String sql="SELECT * FROM alumno WHERE Activo = 1 ";
         
         try {
             PreparedStatement ps=con.prepareStatement(sql);

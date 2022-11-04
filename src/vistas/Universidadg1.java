@@ -7,6 +7,7 @@ package vistas;
 
 import dataopersistencia.AlumnoData;
 import dataopersistencia.Conexion;
+import dataopersistencia.InscripcionData;
 import java.sql.Connection;
 
 /**
@@ -15,13 +16,14 @@ import java.sql.Connection;
  */
 public class Universidadg1 extends javax.swing.JFrame {
     private AlumnoData alumnoData;
+    private InscripcionData inscripcionData;
     private Connection con;
     /**
      * Creates new form Universidadg1
      */
     public Universidadg1() {
         initComponents();
-         this.con =Conexion.getConexion();
+        this.con =Conexion.getConexion();
         this.alumnoData= new AlumnoData();
     }
 
@@ -119,7 +121,11 @@ public class Universidadg1 extends javax.swing.JFrame {
     }//GEN-LAST:event_FormularioAlumnoActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        FormularioInscripcion fi = new FormularioInscripcion();
+        fi.setVisible(true);
+        Jpanel.add(fi);
+        Jpanel.repaint();
+        Jpanel.moveToFront(fi);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void FormularioMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormularioMateriaActionPerformed
