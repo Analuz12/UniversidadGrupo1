@@ -81,17 +81,17 @@ public class MateriaData {
       public Materia obtenerMateriaPorId(int idMateria) {
         String sql= "SELECT * FROM materia WHERE Activa = 1 AND idMateria = ?";
         
-        Materia alu = new Materia();
+        Materia mat = new Materia();
         try {
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setInt(1, idMateria);
             ResultSet rs=ps.executeQuery();
             
             if(rs.next()){              
-                alu.setIdMateria(idMateria);
-                alu.setNombre(rs.getString("Nombre"));
-                alu.setAnio(rs.getInt("Anio"));
-                alu.setActiva(rs.getBoolean("Activa"));
+                mat.setIdMateria(idMateria);
+                mat.setNombre(rs.getString("Nombre"));
+                mat.setAnio(rs.getInt("Anio"));
+                mat.setActiva(rs.getBoolean("Activa"));
                 
             }
             
@@ -100,8 +100,8 @@ public class MateriaData {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo obtener Materia");
         }
-        JOptionPane.showMessageDialog(null, alu);
-        return alu;
+        
+        return mat;
          
     }
      public void borrarMateria (int idMateria){

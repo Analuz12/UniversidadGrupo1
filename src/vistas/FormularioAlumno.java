@@ -303,19 +303,7 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
     private void JactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JactualizarActionPerformed
         // TODO add your handling code here:
-        
-           if(Jlegajos.getText() != null){
-            
-            int dni = Integer.parseInt(Jdnis.getText());
-            String Apellido= Japellidos.getText();
-            String Nombre= Jnombres.getText();
-            SimpleDateFormat formatofecha = new SimpleDateFormat("dd-MM-yyyy");
-            LocalDate FechaNac = LocalDate.parse(formatofecha.format(JfechaNacimiento.getDate()),DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-            boolean Activo = Jtilde.isEnabled();
-            
-            Alumno alumno= new Alumno (Apellido,Nombre,FechaNac,dni ,Activo);
-            alumnoData.actualizaAlumno(alumno);
-        }
+
     }//GEN-LAST:event_JactualizarActionPerformed
 
 

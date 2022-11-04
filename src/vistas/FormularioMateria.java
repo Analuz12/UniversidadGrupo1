@@ -15,6 +15,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     public FormularioMateria() {
         initComponents();
         this.conn = Conexion.getConexion();
+        this.mat = new MateriaData();
     }
 
     /**
@@ -193,13 +194,18 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonLimpiar
 
     private void botonBorrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrar
-        mat = new MateriaData();
-        int idMateria = Integer.parseInt(jftCodigoMateria.getText());
-        mat.borrarMateria(idMateria);
+        try {
+            int idMateria = Integer.parseInt(jftCodigoMateria.getText());
+            if (idMateria==0) {
+            mat.borrarMateria(idMateria);
+        }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "ingrese codigo!");
+        }
     }//GEN-LAST:event_botonBorrar
 
     private void botonActualizar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizar
-        mat = new MateriaData();
+        try {
         materia.setAnio(Integer.parseInt(jftAnio.getText()));
         materia.setNombre(jftNombre.getText());
         boolean flag = false;
@@ -209,12 +215,28 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         materia.setIdMateria(Integer.parseInt(jftCodigoMateria.getText()));
         materia.setActiva(flag);
         mat.actualizaMateria(materia);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Llene los campos");
+        }
+       
     }//GEN-LAST:event_botonActualizar
 
     private void botonBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscar
-        mat = new MateriaData();
-        int idMateria = Integer.parseInt(jftCodigoMateria.getText());
-        mat.obtenerMateriaPorId(idMateria);
+        int id = Integer.parseInt(jftCodigoMateria.getText());
+        Materia materia  = mat.obtenerMateriaPorId(id);
+        if (materia.getIdMateria()>0) {
+            try{
+                jftNombre.setText(materia.getNombre());
+                jftAnio.setText((materia.getAnio()+""));
+                jcbActiva.setSelected(materia.isActiva());
+            }catch (NumberFormatException ex ){
+            JOptionPane.showMessageDialog(this,"ustd debe ingresar solo numeros");
+            jftCodigoMateria.setText("");
+            jftCodigoMateria.requestFocus();
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "No se encontro materia");
+        }
     }//GEN-LAST:event_botonBuscar
 
 
