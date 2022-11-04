@@ -80,6 +80,10 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
 
         jLabel8.setText("jLabel8");
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         Jbuscar.setText("Buscar");
         Jbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

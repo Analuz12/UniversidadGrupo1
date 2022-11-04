@@ -62,6 +62,10 @@ public class FormularioInscripcion extends javax.swing.JInternalFrame {
         jBSalir = new javax.swing.JButton();
         jCBAlumno = new javax.swing.JComboBox<>();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jTextField1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jTextField1.setText("FORMULARIO DE INSCRIPCION");
 

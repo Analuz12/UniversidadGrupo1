@@ -41,6 +41,10 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         jftAnio = new javax.swing.JTextField();
         jcbActiva = new javax.swing.JCheckBox();
 
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setText("Materia");
 

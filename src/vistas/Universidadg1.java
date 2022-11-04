@@ -51,11 +51,11 @@ public class Universidadg1 extends javax.swing.JFrame {
         Jpanel.setLayout(JpanelLayout);
         JpanelLayout.setHorizontalGroup(
             JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGap(0, 1134, Short.MAX_VALUE)
         );
         JpanelLayout.setVerticalGroup(
             JpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 269, Short.MAX_VALUE)
+            .addGap(0, 583, Short.MAX_VALUE)
         );
 
         Universidad.setText("Universidad ");
