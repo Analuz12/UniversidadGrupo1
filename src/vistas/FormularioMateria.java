@@ -168,21 +168,28 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonGuardar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGuardar
-        materia = new Materia();
-        mat = new MateriaData();
-        materia.setNombre(jftNombre.getText());
+        
         boolean flag = false;
         try {
+            materia = new Materia();
+            materia.setNombre(jftNombre.getText());
             materia.setAnio(Integer.parseInt(jftAnio.getText()));
+            
+            if (!jcbActiva.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Tilde para completar");
+            }else{
+            flag = true;
+            materia.setActiva(flag);
+            mat.guardarMateria(materia);
+            }
+            
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: Ingrese numero");
+            JOptionPane.showMessageDialog(this, "Error: Revise que todos los campos este completos!");
         }
-        if (!jcbActiva.isSelected()) {
-            JOptionPane.showMessageDialog(this, "Tilde 'Activa' para poder finalizar");
-        }
+       
+        
         flag = true;
-        materia.setActiva(flag);
-        mat.guardarMateria(materia);
+        
     }//GEN-LAST:event_botonGuardar
 
     private void botonLimpiar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLimpiar
@@ -194,6 +201,7 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonLimpiar
 
     private void botonBorrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBorrar
+    
         try {
             int idMateria = Integer.parseInt(jftCodigoMateria.getText());
             if (idMateria==0) {
@@ -205,20 +213,26 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_botonBorrar
 
     private void botonActualizar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonActualizar
+        int id = 1;
         try {
-        materia.setAnio(Integer.parseInt(jftAnio.getText()));
-        materia.setNombre(jftNombre.getText());
-        boolean flag = false;
-        if (jcbActiva.isSelected()) {
-            flag = true;
+            id = Integer.parseInt(jftCodigoMateria.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Usted Debe ingresar solo numero");
+            jftCodigoMateria.setText("");
+            jftCodigoMateria.requestFocus();
         }
-        materia.setIdMateria(Integer.parseInt(jftCodigoMateria.getText()));
-        materia.setActiva(flag);
+        String Nombre = jftNombre.getText();
+        int Anio = -1;
+        try {
+            Anio = Integer.parseInt(jftAnio.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Usted Debe ingresar solo numero");
+            jftAnio.setText("");
+            jftAnio.requestFocus();
+        }
+        boolean Activa = jcbActiva.isSelected();
+        Materia materia = new Materia(id, Nombre, Anio, Activa);
         mat.actualizaMateria(materia);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Llene los campos");
-        }
-       
     }//GEN-LAST:event_botonActualizar
 
     private void botonBuscar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscar

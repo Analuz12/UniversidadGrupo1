@@ -302,8 +302,31 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_JborrarActionPerformed
 
     private void JactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JactualizarActionPerformed
-        // TODO add your handling code here:
-
+        int id = 1;
+        try {
+            id = Integer.parseInt(Jlegajos.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Usted Debe ingresar solo numero");
+            Jlegajos.setText("");
+            Jlegajos.requestFocus();
+        }
+        String Nombre = Jnombres.getText();
+        String Apellido = Japellidos.getText();
+        long Dni = -1;
+        try {
+            Dni = Long.parseLong(Jdnis.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Usted Debe ingresar solo numero");
+            Jdnis.setText("");
+            Jdnis.requestFocus();
+        }
+        SimpleDateFormat formatoFecha = new SimpleDateFormat ("dd-MM-yyyy");
+        String fecha = formatoFecha.format(JfechaNacimiento.getDate());
+        LocalDate FechaNac = LocalDate.parse(fecha,DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        boolean Activo = Jtilde.isSelected();
+        Alumno alumno = new Alumno(id, Apellido, Nombre, FechaNac, Dni, Activo);
+        alumnoData.actualizaAlumno(alumno) ;
+        
     }//GEN-LAST:event_JactualizarActionPerformed
 
 
