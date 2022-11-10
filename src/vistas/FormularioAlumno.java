@@ -9,6 +9,7 @@ import dataopersistencia.AlumnoData;
 import dataopersistencia.Conexion;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -318,8 +319,9 @@ public class FormularioAlumno extends javax.swing.JInternalFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Usted Debe ingresar solo numero");
             Jdnis.setText("");
-            Jdnis.requestFocus();
+            Jdnis.requestFocus();    
         }
+        
         SimpleDateFormat formatoFecha = new SimpleDateFormat ("dd-MM-yyyy");
         String fecha = formatoFecha.format(JfechaNacimiento.getDate());
         LocalDate FechaNac = LocalDate.parse(fecha,DateTimeFormatter.ofPattern("dd-MM-yyyy"));

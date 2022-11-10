@@ -41,7 +41,13 @@ public class AlumnoData {
             ps.close();
             
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-AgregarAlumno");
+       
+                if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "El alumno ya se encuentra en la base de datos - verifique");
+                    } else {
+                    JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-AgregarAlumno");
+                }
+
         }
         
     }
@@ -140,7 +146,17 @@ public class AlumnoData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-actualizarAlumno"+ex.getMessage());
+            if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "El alumno ya se encuentra actualizado con esos datos - verifique");
+            } else {
+                if (ex.getErrorCode() == 1452) {
+                    JOptionPane.showMessageDialog(null, "El Alumno no inexiste - verifique");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-actualizarAlumno"+ex.getMessage());
+                }
+            }
+
         }
     }
 

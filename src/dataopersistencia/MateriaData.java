@@ -42,7 +42,12 @@ public class MateriaData {
             ps.close();
             
         }catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ALumnoData Sentencia SQL erronea-AgregarMateria");
+            
+            if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "La materia ya se encuentra en la base de datos - verifique");
+                    } else {
+                    JOptionPane.showMessageDialog(null, "MateriaData Sentencia SQL erronea-AgregarMateria");
+                }
         }
        
     }
@@ -138,7 +143,18 @@ public class MateriaData {
             ps.close();
             
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "MateriaData Sentencia SQL erronea-actualizarMateria"+ex.getMessage());
+            
+             if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "La materia ya se encuentra actualizada con esos datos - verifique");
+            } else {
+                if (ex.getErrorCode() == 1452) {
+                    JOptionPane.showMessageDialog(null, "La materia no inexiste - verifique");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "MateriaData Sentencia SQL erronea-actualizarMateria"+ex.getMessage());
+                }
+            }
+
         }
     }
 }
